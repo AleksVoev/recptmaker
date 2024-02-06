@@ -1,0 +1,12 @@
+import datetime
+
+def order_to_receipt(order_number):
+    order_str = str(order_number)
+    current_date = datetime.datetime.now()
+    date_str = str(current_date.day % 10) + current_date.strftime("%m")
+    receipt_code = order_str[-1] + order_str[:-1] + date_str + "000053023"
+    return receipt_code
+
+order_number = input("Enter the order number: ")
+receipt_code = order_to_receipt(order_number)
+print("Receipt Code:", receipt_code)
